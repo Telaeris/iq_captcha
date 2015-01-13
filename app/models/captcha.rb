@@ -4,8 +4,8 @@ include Magick
 class Captcha
   attr_accessor :pointsize, :color_code
   OPERATORS = ['+','-','*','/'].shuffle
-  MAX_OP = 10
-  MIN_OP = 10
+  MAX_OP = 6
+  MIN_OP = 6
   def initialize(pointsize=25,color_code='ffffff')
 	self.pointsize = pointsize.to_i
 	self.pointsize = 25 if self.pointsize.to_i == 0
