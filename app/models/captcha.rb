@@ -32,13 +32,13 @@ class Captcha
   def generate_question_answer
     op1 = rand(Captcha::MAX_OP)
     op2 = 1 + rand(Captcha::MIN_OP)
+    op2, op1 = [op1, op2].sort
     operator = Captcha::OPERATORS[rand(Captcha::OPERATORS.size)]
     case operator
     when '+','-','*'
             answer = eval("#{op1}#{operator}#{op2}")
             question = "#{op1}#{operator}#{op2} = ?"
     when "/"
-            op2, op1 = [op1, op2].sort
             op2 = 1 if op2 == 0
             answer = eval("#{op1}#{operator}#{op2}")
             question = "#{op1}#{operator}#{op2} = ?"
